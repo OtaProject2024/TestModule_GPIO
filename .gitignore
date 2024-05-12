@@ -1,0 +1,15 @@
+# Python
+venv
+.venv
+
+# binary files
+bin/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# VScode
+.vscode/
