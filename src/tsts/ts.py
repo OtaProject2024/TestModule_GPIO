@@ -29,3 +29,6 @@ while True:
     
     set_angle(180) # サーボを180度に設定
     time.sleep(1)
+
+servo.stop()
+GPIO.cleanup()
