@@ -6,7 +6,7 @@ SERVO_PIN = 18
 # pigpioを初期化
 pi = pigpio.pi()
 
-# サーボモーターを特定の角度に設定する関数
+#サーボモーターを特定の角度に設定する関数
 def set_angle(angle):
     assert 0 <= angle <= 180, '角度は0から180の間でなければなりません'
     
