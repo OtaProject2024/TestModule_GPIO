@@ -1,17 +1,21 @@
-# SPDX-License-Identifier: 2021 ladyada for Adafruit Industries
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
 
 import time
-from smbus2 import SMBus
-from adafruit_bno055 import BNO055_I2C
+import board
+import busio
+import adafruit_bno055
 
-# I2Cバスの設定
-i2c_bus = 1  # Raspberry Pi Zeroでは通常I2Cバス1を使用
-i2c = SMBus(i2c_bus)
+# Use these lines for I2C
+i2c = busio.I2C(board.GP21, board.GP20)
+sensor = adafruit_bno055.BNO055_I2C(i2c)
 
-sensor = BNO055_I2C(i2c)
+# User these lines for UART
+# uart = busio.UART(board.TX, board.RX)
+# sensor = adafruit_bno055.BNO055_UART(uart)
 
 last_val = 0xFFFF
+
 
 def temperature():
     global last_val  # pylint: disable=global-statement
@@ -22,6 +26,7 @@ def temperature():
             return 0b00111111 & result
     last_val = result
     return result
+
 
 while True:
     print("Temperature: {} degrees C".format(sensor.temperature))
