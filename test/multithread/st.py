@@ -9,17 +9,17 @@ class Led:
 
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(pin, GPIO.OUT)
+        GPIO.setup(self.pin, GPIO.OUT)
 
     def run(self):
         print(f'pin:{self.pin} start')
         for i in range(5):
-            GPIO.output(pin, True)
-            time.sleep(wait)
-            GPIO.output(pin, False)
+            GPIO.output(self.pin, True)
+            time.sleep(self.wait)
+            GPIO.output(self.pin, False)
             time.sleep(2)
 
-        GPIO.cleanup(pin)
+        GPIO.cleanup(self.pin)
         print(f'pin:{self.pin} finish')
 
 
