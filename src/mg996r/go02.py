@@ -26,7 +26,7 @@ class SBMotor:
             self.servo_angle(angle * -1)
 
         self.pwm.stop(self.pin)
-        GPIO.cleanup()
+        GPIO.cleanup(self.pin)
 
 
 if __name__ == '__main__':
