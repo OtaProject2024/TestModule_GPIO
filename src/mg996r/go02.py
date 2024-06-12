@@ -12,7 +12,7 @@ class SBMotor:
         self.pwm = GPIO.PWM(self.pin, self.frequency)
 
 
-    def servo_angle(angle):
+    def servo_angle(self, angle):
         duty = 2.5 + (12.0 - 2.5) * (angle + 90) / 180
         self.pwm.ChangeDutyCycle(duty)
         time.sleep(1.0)
