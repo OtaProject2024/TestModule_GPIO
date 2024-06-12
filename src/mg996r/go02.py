@@ -6,10 +6,10 @@ class SBMotor:
     def __init__(self, pin=18, freq=50):
         self.pin = pin
         self.frequency = freq
-        self.pwm = GPIO.PWM(self.pin, self.frequency)
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pin, GPIO.OUT)
+        self.pwm = GPIO.PWM(self.pin, self.frequency)
 
 
     def servo_angle(angle):
