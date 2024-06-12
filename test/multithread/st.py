@@ -11,7 +11,7 @@ class Led:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)
 
-    def run():
+    def run(self):
         print(f'pin:{self.pin} start')
         for i in range(5):
             GPIO.output(pin, True)
@@ -24,13 +24,13 @@ class Led:
 
 
 
-def run(pin, wait):
+def start(pin, wait):
     a = Led(pin, wait)
     a.run()
 
 if __name__ == '__main__':
-    t1 = threading.Thread(target=run, args=(17, 2))
-    t2 = threading.Thread(target=run, args=(18, 4))
+    t1 = threading.Thread(target=start, args=(17, 2))
+    t2 = threading.Thread(target=start, args=(18, 4))
 
     t1.start()
     t2.start()
