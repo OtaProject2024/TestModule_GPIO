@@ -31,4 +31,4 @@ class SBMotor:
 
 if __name__ == '__main__':
     a = SBMotor()
-    a.run(30)
+    a.run(90)
